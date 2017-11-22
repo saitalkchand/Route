@@ -19,6 +19,7 @@ export class GraphComponent implements OnInit {
         scaleShowVerticalLines: false,
         responsive: true,
         tooltips: {
+            enabled: false,
             custom: function(tooltipModel) {
                 // Tooltip Element
                 var tooltipEl = document.getElementById('chartjs-tooltip');

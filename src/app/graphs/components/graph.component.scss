@@ -1,0 +1,7 @@
+div#chartjs-tooltip:before {
+    content: "";
+    border: 10px solid;
+    position: absolute;
+    left: -20px;
+    border-color: transparent #000 transparent transparent;
+}
