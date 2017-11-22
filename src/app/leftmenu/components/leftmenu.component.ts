@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Router, Route, ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector:'leftmenu',
+    selector:'left-menu',
     templateUrl: './leftmenu.component.html',
     styleUrls: ['./leftmenu.component.scss'],
     encapsulation: ViewEncapsulation.None,
