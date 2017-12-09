@@ -1,12 +1,15 @@
 /*tool tip css*/
 .tool-tip {
-    width: 280px;
+    width: 250px;
     padding: 5px;
     box-sizing: border-box;
     position: absolute;
     z-index: 999;
     bottom: 20%;
     transform:scale(0.95);
+    &.dc-compare{
+        width: 500px; 
+    }
     .tool-header {
         background: #000;
         color: #fff;
@@ -46,17 +49,23 @@
         color: #fff;
         position: relative;
     }
-    
-    .col-md-4 {
+    .col-md-4{
         display: inline-block;
-        width: 35%;
+        width: 32%;
         text-align: center;
+        box-sizing: border-box;
     }
-
+    .col-md-6 {
+        display: inline-block;
+        width: 48%;
+        text-align: center;
+        box-sizing: border-box;
+    }
     .col-md-8 {
         display: inline-block;
-        width: 63%;
+        width: 66%;
         text-align: center;
+        box-sizing: border-box;
     }
     
     .tip-hc-count {
@@ -66,7 +75,6 @@
         border-radius: 50%;
         height: 70px;
         box-sizing: border-box;
-        padding: 5px;
         text-align: center;
         font-size: 12px;
         color: #0875e6;

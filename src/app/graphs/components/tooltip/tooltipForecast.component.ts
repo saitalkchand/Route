@@ -8,16 +8,23 @@ import { Component, OnInit, ViewEncapsulation, ViewChild,Input } from '@angular/
     </div>
     <div class="tool-body">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="tip-hc-count">
                     <span>Total HC</span>
                     <span class="hc-value">{{rowData.totalHC}}</span>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div><span>Fixed HC:</span><span class="tip-value">{{rowData.fixedHC}}</span></div>
-                <div><span>Variable HC:</span><span class="tip-value">{{rowData.variableHC}}</span></div>
-                <div><span>Turnover HC:</span><span class="tip-value">{{rowData.turnOverHc}}</span></div>                
+            <div class="col-md-4">
+                <div class="tip-hc-count">
+                    <span>Total HC</span>
+                    <span class="hc-value">{{rowData.totalHC}}</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tip-hc-count">
+                    <span>Total HC</span>
+                    <span class="hc-value">{{rowData.totalHC}}</span>
+                </div>
             </div>
         </div>
         <div class="tip-summery">
@@ -26,6 +33,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild,Input } from '@angular/
             <div class="summery-details">Week {{rowData.wmWeek}} in FY18 v.s. Week {{rowData.wmWeek - 1}} in FY17: <span class="down">8</span></div>
         </div>
     </div>
+    
     </div>`,
     styleUrls: ['./tooltip.component.scss'],
     encapsulation: ViewEncapsulation.None,
