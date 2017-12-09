@@ -1,15 +1,19 @@
 <div class="container">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-9"> 
-                    <canvas baseChart
-                    [datasets]="barChartData"
-                    [labels]="barChartLabels"
-                    [options]="barChartOptions"
-                    [legend]="barChartLegend"
-                    [chartType]="barChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
+            <div class="col-md-9">
+                <div class="char-cont">
+                    <chart [options]="options"></chart>
+                    <tool-tip-histrical [rowData]="rowData"></tool-tip-histrical>
+                </div>
+                <div class="char-cont">
+                    <chart [options]="options1"></chart>
+                    <tool-tip-dc-compare [rowData]="rowData"></tool-tip-dc-compare>
+                </div>
+                <div class="char-cont">
+                    <chart [options]="options2"></chart>
+                    <tool-tip-cast [rowData]="rowData"></tool-tip-cast>
+                </div>
             </div>
         </div>
     

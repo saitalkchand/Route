@@ -8,104 +8,181 @@ import { Router, Route, ActivatedRoute } from '@angular/router';
 })
 
 export class GraphComponent implements OnInit {
-
+    options: Object;
+    options1: Object;
+    options2: Object;
+    rowData = {
+        "fixedHC": 10,
+        "variableHC": 20,
+        "totalHC": 50,
+        "wmWeek": 7,
+        "turnOverHc": 0,
+        "startDate": "2017-03-17",
+        "endDate": "2018-01-19"
+      }
     constructor(public router:Router){
-
+        this.options = {
+            chart: {
+                type: 'column',
+                width:800
+            },
+            title: {
+                text: 'Efficiency Optimization by Branch'
+            },
+            xAxis: {
+                categories: [
+                    'Seattle HQ',
+                    'San Francisco',
+                    'Tokyo'
+                ]
+            },
+            yAxis: [{
+                min: 0,
+                title: {
+                    text: 'Employees'
+                }
+            }, {
+                title: {
+                    text: 'Profit (millions)'
+                },
+                opposite: true
+            }],
+            legend: {
+                shadow: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                column: {
+                    grouping: false,
+                    shadow: false,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Employees',
+                color: 'rgba(165,170,217,1)',
+                data: [150, 100, 50],
+                pointPadding: 0.3,
+                pointPlacement: 0
+            }, {
+                name: 'Employees Optimized',
+                color: 'rgba(126,86,134,.9)',
+                data: [140, 90, 40],
+                pointPadding: 0.4,
+                pointPlacement: 0
+            }]
+        };
+        this.options1 = {
+            chart: {
+                type: 'column',
+                width:800
+            },
+            title: {
+                text: 'Efficiency Optimization by Branch'
+            },
+            xAxis: {
+                categories: [
+                    'Seattle HQ',
+                    'San Francisco',
+                    'Tokyo'
+                ]
+            },
+            yAxis: [{
+                min: 0,
+                title: {
+                    text: 'Employees'
+                }
+            }, {
+                title: {
+                    text: 'Profit (millions)'
+                },
+                opposite: true
+            }],
+            legend: {
+                shadow: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                column: {
+                    grouping: false,
+                    shadow: false,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Employees',
+                color: 'rgba(165,170,217,1)',
+                data: [150, 100, 50],
+                pointPadding: 0.3,
+                pointPlacement: 0
+            }, {
+                name: 'Employees Optimized',
+                color: 'rgba(126,86,134,.9)',
+                data: [140, 90, 40],
+                pointPadding: 0.4,
+                pointPlacement: 0
+            }]
+        };
+        this.options2 = {
+            chart: {
+                type: 'column',
+                width:800
+            },
+            title: {
+                text: 'Efficiency Optimization by Branch'
+            },
+            xAxis: {
+                categories: [
+                    'Seattle HQ',
+                    'San Francisco',
+                    'Tokyo'
+                ]
+            },
+            yAxis: [{
+                min: 0,
+                title: {
+                    text: 'Employees'
+                }
+            }, {
+                title: {
+                    text: 'Profit (millions)'
+                },
+                opposite: true
+            }],
+            legend: {
+                shadow: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            plotOptions: {
+                column: {
+                    grouping: false,
+                    shadow: false,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Employees',
+                color: 'rgba(165,170,217,1)',
+                data: [150, 100, 50],
+                pointPadding: 0.3,
+                pointPlacement: 0
+            }, {
+                name: 'Employees Optimized',
+                color: 'rgba(126,86,134,.9)',
+                data: [140, 90, 40],
+                pointPadding: 0.4,
+                pointPlacement: 0
+            }]
+        };
     }
     ngOnInit(){
         
     }
-    public barChartOptions:any = {
-        scaleShowVerticalLines: false,
-        responsive: true,
-        tooltips: {
-            enabled: false,
-            custom: function(tooltipModel) {
-                // Tooltip Element
-                var tooltipEl = document.getElementById('chartjs-tooltip');
-
-                // Create element on first render
-                if (!tooltipEl) {
-                    tooltipEl = document.createElement('div');
-                    tooltipEl.id = 'chartjs-tooltip';
-                    tooltipEl.innerHTML = "<table></table>"
-                    document.body.appendChild(tooltipEl);
-                }
-
-                // Hide if no tooltip
-                if (tooltipModel.opacity === 0) {
-                    tooltipEl.style.opacity = "0";
-                    return;
-                }
-
-                // Set caret Position
-                tooltipEl.classList.remove('above', 'below', 'no-transform');
-                if (tooltipModel.yAlign) {
-                    tooltipEl.classList.add(tooltipModel.yAlign);
-                } else {
-                    tooltipEl.classList.add('no-transform');
-                }
-
-                function getBody(bodyItem) {
-                    return bodyItem.lines;
-                }
-
-                // Set Text
-                if (tooltipModel.body) {
-                    var titleLines = tooltipModel.title || [];
-                    var bodyLines = tooltipModel.body.map(getBody);
-
-                    var innerHtml = '<thead>';
-
-                    titleLines.forEach(function(title) {
-                        innerHtml += '<tr><th>' + title + '</th></tr>';
-                    });
-                    innerHtml += '</thead><tbody>';
-
-                    bodyLines.forEach(function(body, i) {
-                        var colors = tooltipModel.labelColors[i];
-                        var style = 'background:' + colors.backgroundColor;
-                        style += '; border-color:' + colors.borderColor;
-                        style += '; border-width: 2px';
-                        var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
-                        innerHtml += '<tr><td>' + span + body + '</td></tr>';
-                    });
-                    innerHtml += '</tbody>';
-
-                    var tableRoot = tooltipEl.querySelector('table');
-                    tableRoot.innerHTML = innerHtml;
-                }
-
-                // `this` will be the overall tooltip
-                var position = this._chart.canvas.getBoundingClientRect();
-
-                // Display, position, and set styles for font
-                tooltipEl.style.opacity = "1";
-                tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
-                tooltipEl.style.top = position.top + tooltipModel.caretY + 'px';
-                tooltipEl.style.fontFamily = tooltipModel._fontFamily;
-                tooltipEl.style.fontSize = tooltipModel.fontSize;
-                tooltipEl.style.fontStyle = tooltipModel._fontStyle;
-                tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
-                tooltipEl.style.position = 'absolute';
-                tooltipEl.style.background = '#fff';
-            }
-        }
-      };
-      public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-      public barChartType:string = 'bar';
-      public barChartLegend:boolean = true;
-     
-      public barChartData:any[] = [
-        {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}
-      ];
-     
-      // events
-      public chartClicked(e:any):void {
-        console.log(e);
-      }
-     
-      public chartHovered(e:any):void {
-        console.log(e);
-      }
+    
 }

@@ -1,0 +1,99 @@
+/*tool tip css*/
+.tool-tip {
+    width: 280px;
+    padding: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 999;
+    bottom: 20%;
+    transform:scale(0.95);
+    .tool-header {
+        background: #000;
+        color: #fff;
+        padding: 5px;
+        box-sizing: border-box;
+        position: relative;
+        line-height: 20px;
+    }
+    
+    .tool-header span {
+        font-size: 12px;
+    }
+    span.tip-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    
+    .tool-header:before {
+        content: "";
+        border: 16px solid #000;
+        position: absolute;
+        right: -30px;
+        top: 0px;
+        border-color: transparent transparent transparent #000;
+    }
+    
+    .left-tip .tool-header:before {
+      left: -30px;
+      border-color: transparent #000 transparent transparent;
+      right: unset;
+    }
+    
+    .tool-body {
+        padding: 5px;
+        background: rgba(0,0,0,0.8);
+        color: #fff;
+        position: relative;
+    }
+    
+    .col-md-4 {
+        display: inline-block;
+        width: 35%;
+        text-align: center;
+    }
+
+    .col-md-8 {
+        display: inline-block;
+        width: 63%;
+        text-align: center;
+    }
+    
+    .tip-hc-count {
+        width: 70px;
+        background: #fff;
+        border: 1px solid #0875e6;
+        border-radius: 50%;
+        height: 70px;
+        box-sizing: border-box;
+        padding: 5px;
+        text-align: center;
+        font-size: 12px;
+        color: #0875e6;
+        margin: 0 auto;
+    }
+    
+    span.hc-value {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    
+    .summer-title {
+        font-weight: bold;
+    }
+    
+    .summery-details .up {
+        color: #2eec2e;
+        font-weight: bold;
+    }
+    
+    .summery-details .down {
+        color: #ec2e2e;
+        font-weight: bold;
+    }
+    
+    .summery-details {
+        font-size: 12px;
+    }
+}
+

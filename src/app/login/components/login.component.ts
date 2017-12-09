@@ -17,6 +17,6 @@ export class LoginComponent implements OnInit {
     }
     login(){
         sessionStorage.isLogin = true;
-        this.router.navigate(['/user']);
+        this.router.navigate(['/graph']);
     }
 }
