@@ -4,6 +4,7 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import { SubscriptionLike as ISubscription } from 'rxjs';
 @Component({
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.scss'],
@@ -11,6 +12,10 @@ import 'rxjs/add/operator/map';
 })
 
 export class UserComponent implements OnInit {
+   subscription:ISubscription; 
+   constructor(private realtimeProvider:RealtimeServiceProvider){
+
+   }
 
     myControl: FormControl = new FormControl();
     
@@ -23,6 +28,9 @@ export class UserComponent implements OnInit {
       filteredOptions: Observable<string[]>;
     
        ngOnInit() {
+         this.subscription = this.realtimeProvider.receivedSubject.subscribe(e =>  {
+           
+         });
           this.filteredOptions = this.myControl.valueChanges
              .startWith(null)
              .map(val => val ? this.filter(val) : this.options.slice());
